@@ -1,5 +1,6 @@
 package com.juaracoding.ujianminggu05.pages;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -24,7 +25,7 @@ public class ProductListPage {
     @FindBy(xpath = "(//button[@class='btn_primary btn_inventory'][normalize-space()='ADD TO CART'])[1]")
     List<WebElement> buttonAddToCart;
 
-    @FindBy(xpath = "//a[@class='shopping_cart_link']")
+    @FindBy(xpath = "//a[@class='shopping_cart_link fa-layers fa-fw']//*[name()='svg']")
     List<WebElement> buttonCart;
 
 
@@ -55,7 +56,12 @@ public class ProductListPage {
         buttonAddToCart.get(0).click();
     }
     public void ClickCart() {
-        buttonCart.get(0).click();
+        List<WebElement> cartIcons = driver.findElements(By.xpath("//a[@class='shopping_cart_link fa-layers fa-fw']//*[name()='svg']")); // Ganti dengan xpath yang benar
+        if (!cartIcons.isEmpty()) {
+            cartIcons.get(0).click();
+        } else {
+            throw new RuntimeException("Element keranjang tidak ditemukan");
+        }
     }
 
     public boolean checkProperty() {

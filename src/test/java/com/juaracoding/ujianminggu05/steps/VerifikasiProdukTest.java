@@ -1,6 +1,5 @@
 package com.juaracoding.ujianminggu05.steps;
 
-
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
@@ -15,7 +14,6 @@ import io.cucumber.java.en.When;
 public class VerifikasiProdukTest {
     WebDriver driver;
     SignInPage signInPage;
-
     ProductListPage produkListPage;
 
     @Given("Pretest verifikasi, login dengan user valid")
@@ -31,6 +29,7 @@ public class VerifikasiProdukTest {
     @When("Verifikasi semua produk ditampilkan")
     public void testStep02() {
         Assert.assertTrue(produkListPage.hasAProducts());
+
     }
 
     @Then("Daftar produk muncul lengkap dengan nama, harga, dan tombol Add to Cart")
