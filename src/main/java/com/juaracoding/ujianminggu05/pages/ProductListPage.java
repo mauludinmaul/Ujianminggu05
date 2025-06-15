@@ -1,10 +1,14 @@
 package com.juaracoding.ujianminggu05.pages;
 
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 
@@ -20,7 +24,7 @@ public class ProductListPage {
     @FindBy(xpath = "(//button[@class='btn_primary btn_inventory'][normalize-space()='ADD TO CART'])[1]")
     List<WebElement> buttonAddToCart;
 
-    @FindBy(xpath = "//button[@class='shopping_cart_link']")
+    @FindBy(xpath = "//a[@class='shopping_cart_link']")
     List<WebElement> buttonCart;
 
 
