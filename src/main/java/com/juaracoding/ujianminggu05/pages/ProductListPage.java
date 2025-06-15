@@ -17,8 +17,12 @@ public class ProductListPage {
     @FindBy(xpath = "//div[@class='inventory_item_price']")
     List<WebElement> inventoryItemPrice;
 
-    @FindBy(xpath = "//div[@class='btn_primary btn_inventory']")
+    @FindBy(xpath = "(//button[@class='btn_primary btn_inventory'][normalize-space()='ADD TO CART'])[1]")
     List<WebElement> buttonAddToCart;
+
+    @FindBy(xpath = "//button[@class='shopping_cart_link']")
+    List<WebElement> buttonCart;
+
 
     public ProductListPage(WebDriver driver) {
         this.driver = driver;
@@ -42,6 +46,12 @@ public class ProductListPage {
                 getTotalNames(),
                 getTotalPrices(),
                 getTotalButtons()).contains(6);
+    }
+    public void ClickAddtoCart() {
+        buttonAddToCart.get(0).click();
+    }
+    public void ClickCart() {
+        buttonCart.get(0).click();
     }
 
     public boolean checkProperty() {
